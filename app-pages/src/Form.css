@@ -1,0 +1,42 @@
+.form{
+  border: 1px solid black;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 3em 11em 3em;
+  grid-row-gap: 1em;
+  width: 1fr;
+  padding-left: .5em;
+}
+
+.form >label > textarea{
+  width: 90%;
+  height: 100%;
+  resize: none;
+  font-size: 1em;
+  padding: .5em;
+  border-radius: 5px;
+  background-color: #eeeeee;
+}
+
+.button{
+  all: unset;
+	background-color: #aaaaaa;
+	border-radius: 3px;
+	font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+	width: 5em;
+	margin-top: .5em; 
+  outline: none;
+}
+
+.button:hover{
+	background-color: #666666;
+  color: #aaaaaa;
+  cursor: pointer;
+}
+
+#create-post{
+  font-weight: bold;
+  font-size: 1.5em;
+}

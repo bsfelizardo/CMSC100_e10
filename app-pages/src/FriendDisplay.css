@@ -1,0 +1,8 @@
+.friend-list-item{
+	background-color: #cccccc;
+  border-radius: 5px;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

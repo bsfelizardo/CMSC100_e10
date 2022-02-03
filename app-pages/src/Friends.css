@@ -1,0 +1,20 @@
+.friends-list{
+	display: grid;
+  	grid-auto-flow: row;
+  	grid-row-gap: .5em;
+  	border-right: solid black 1px;
+  	border-radius: 5px;
+}
+
+.friends-requests{
+	display: grid;
+  	grid-auto-flow: row;
+  	grid-row-gap: .5em;
+  	border-right: solid black 1px;
+  	border-radius: 5px;
+}
+
+#friends{
+  font-weight: bold;
+  font-size: 1.5em;
+}

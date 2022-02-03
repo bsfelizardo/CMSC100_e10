@@ -1,0 +1,24 @@
+button.add-button,button.accept-button {
+  all: unset;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+}
+button:hover.add-button,button:hover.accept-button {
+  background-color: #666666; 
+}
+
+
+button.requested-button, .friends-button{
+  all: unset;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #666666;
+}
+

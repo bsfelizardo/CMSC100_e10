@@ -1,0 +1,30 @@
+body, h1,h2,h3,h4,h5,p{
+	margin: 0;
+}
+
+
+.app{
+	font-family: Verdana;
+	height: auto;
+	width: 100%;
+}
+
+.header{
+  background-color: #aaaaaa;
+  height: auto;
+  width: 100%;
+
+}
+
+.footer{
+	background-color: #aaaaaa;
+	width: 100%;
+	height: 4em;
+	position: absolute;
+}
+
+.footer p{
+  text-align: right;
+  font-size: .75em;
+  padding: 1em;
+}

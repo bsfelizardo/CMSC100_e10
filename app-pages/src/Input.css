@@ -1,0 +1,16 @@
+.input{
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-start;
+	padding: .5em;
+	font-family: helvetica;
+}
+
+.label{
+	width: 9em;
+	font-weight: bold;
+}
+
+.inputField{
+	padding-right: .5em;
+}
