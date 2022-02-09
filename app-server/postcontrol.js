@@ -1,6 +1,7 @@
 /*..................................*/
 const mongoose = require('mongoose')
 const jwt = require("jsonwebtoken")
+const friend = require('./models/friend')
 require("./models/post")
 require("./models/user")
 require("./models/friend")
@@ -69,24 +70,21 @@ exports.allPosts = (req, res) => {
       const userID = tokenPayload._id;
 
       // check if user exists
-      return User.findById(userID, (userErr, user) => {
+      return User.findById(userID, async (userErr, user) => {
         if (userErr || !user) {
           return res.send({ isLoggedIn: false });
         }
 
-        let friendsList = [userID]
-        Friend.find({userId: userID, status:"Friends"}, "friend", (err, friends) => {
+        let friendsList = [String(userID)]
+        await Friend.find({userId: userID, status:"Friends"}, "friend", (err, friends) => {
           if(!err){
             console.log("friends of user")
-            console.log(friends)
-            console.log("/friends of user")
-            friends.map((friend, i) => friendsList.push(friend.friend))
+            friends.map((friend, i) => friendsList = [ ...friendsList, friend.friend ])
             console.log(friendsList)
           }
         })
         
-
-        Post.find({userId:{$in: ['61f793a19fa47c0cfc9cd0a9']}},(err, posts) => {
+        Post.find({userId:{$in: friendsList}},(err, posts) => {
           if(!err) { console.log(posts); res.send(posts)}
         })
       });
