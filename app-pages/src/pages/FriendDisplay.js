@@ -76,6 +76,26 @@ class FriendDisplay extends React.Component {
 				})
 	}
 
+	rejectButton(e) {
+		fetch('http://localhost:3001/delete-request', {
+			method: 'POST',
+			credentials: "include",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				friendId:e.target.id
+			})
+		})
+			.then(response => response.json())
+			.then(body => {
+				console.log(body)
+				if(body.ok){
+					window.location.reload()
+				}
+				})
+	}
+
 	buttonClick(e){
 		switch (e.target.className){
 			case "add-button": console.log(e.target.className)
@@ -86,6 +106,7 @@ class FriendDisplay extends React.Component {
 			break 
 			case "friends-button": console.log(e.target.className)
 			break
+			case "reject-button": this.rejectButton(e)
 			default: break
 		}
 	}

@@ -139,6 +139,43 @@ exports.acceptRequest = (req, res) => {
 }
 
 /*..................................*/
+exports.deleteRequest = (req, res) => {
+  return jwt.verify(
+  req.cookies.authToken,
+  "THIS_IS_A_SECRET_STRING",
+  (err, tokenPayload) => {
+    if (err) {
+      return res.send({ success: false });
+    }
+
+    const userID = tokenPayload._id;
+
+    // check if user exists
+    return User.findById(userID, (userErr, user) => {
+      if (userErr || !user) {
+        console.log("user not found")
+        return res.send({ success: false });
+      }
+
+      return Friend.deleteOne({userId: userID, friend: req.body.friendId}, {status: "Friends"}, (err, friends) => {
+        if(!err) {
+          console.log("friend-status")
+          console.log(friends)
+          return Friend.deleteOne({userId: req.body.friendId, friend: userID}, {status: "Friends"}, (err, friends) => {
+            if(!err) {
+              console.log("friend-status")
+              console.log(friends)
+              res.send(friends)
+            }
+          })
+        }
+      })
+
+    })
+  })
+}
+
+/*..................................*/
 exports.sendRequest = (req, res) => {
     return jwt.verify(
     req.cookies.authToken,

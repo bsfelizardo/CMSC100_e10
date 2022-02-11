@@ -32,12 +32,5 @@ module.exports = (app) => {
   app.post('/friend-status', friendcontrol.friendStatus)
   app.get('/all-friends', friendcontrol.allFriends)
   app.get('/all-requests', friendcontrol.allRequests)
-  //app.get('/find-all', controller.findAll)
-  //app.get('/find-by-id', controller.findById)
-  //app.post('/add-user', controller.addUser)
-  //app.post('/add-post', controller.addPost)
-  //app.post('/find-user-by-id-post', controller.findUserByIdPOST)
-  //app.post('/find-user-by-email-post',controller.findUserByEmailPOST) 
-  //app.post('/add', controller.add)
-  //app.post('/delete-by-id', controller.deleteById)
+  app.post('/delete-request', friendcontrol.deleteRequest) 
 }
